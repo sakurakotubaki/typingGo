@@ -1,2 +1,4 @@
 # typingGo
-Go anytime
+Go anytime lesson
+
+try Go!
