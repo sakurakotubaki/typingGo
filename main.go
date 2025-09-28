@@ -23,4 +23,6 @@ func main() {
 	fmt.Println(board)
 	fmt.Println(board[1])
 	fmt.Println(board[1][2])
+	m := make([]int, 3, 5)
+	fmt.Printf("len=%d cap=%d slice=%v\n", len(m), cap(m), m)
 }
