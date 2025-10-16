@@ -2,27 +2,45 @@ package main
 
 import "fmt"
 
+type Vertex struct {
+	X int
+	Y int
+	S string
+}
+
+// *がないとスコープの中でした変更は反映されない
+// func changeVertex(v Vertex) {
+// 	v.X = 1000
+// 	fmt.Println("scop in value", v)
+// }
+
+// *があるとポインターを渡すことができる
+// func changeVertex(v *Vertex) {
+// 	v.X = 1000
+// 	fmt.Println("scop in value", v)
+// }
+
+// (*v).X = 1000 と同じ意味
+func changeVertex(v *Vertex) {
+	(*v).X = 1000
+	fmt.Println("(*v)で自動でポインタの実態を指す", v)
+}
+
 func main() {
-	// array[start:end]
-	n := []int{1, 2, 3, 4, 5}
-	fmt.Println(n[2:4])
-	fmt.Println(n[:2])
-	fmt.Println(n[2:])
-	fmt.Println(n[:])
+	// v := Vertex{X: 1, Y: 2, S: "hello"}
+	// fmt.Println(v)
+	// v.X = 10
+	// fmt.Println(v.X, v.Y)
 
-	// append
-	n = append(n, 30)
-	fmt.Println(n)
+	// v6 := new(Vertex)
+	// fmt.Println(v6)サイレントTV
 
-	// 多次元配列
-	var board = [][]int{
-		{0, 1, 2},
-		{3, 4, 5},
-		{6, 7, 8},
-	}
-	fmt.Println(board)
-	fmt.Println(board[1])
-	fmt.Println(board[1][2])
-	m := make([]int, 3, 5)
-	fmt.Printf("len=%d cap=%d slice=%v\n", len(m), cap(m), m)
+	// newで作成するよりも「&Vertex{}」のようにアドレスをつけた状態で宣言した方がポインタが返ってくることが明示的なためよく使われる。
+	// v7 := &Vertex{}
+	// fmt.Printf("好きだった%s より %d つけvマックス\n", v7.S, v7.X)
+
+	// v := Vertex{X: 1, Y: 2, S: "hello"}
+	v := &Vertex{X: 1, Y: 2, S: "ポインターで値を渡したよ☺️ "}
+	changeVertex(v)
+	fmt.Println(v)
 }
