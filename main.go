@@ -2,10 +2,6 @@ package main
 
 import "fmt"
 
-// update1111
-// update2222
-// update3333
-
 type Person struct {
 	Name string
 }
