@@ -1,23 +1,12 @@
 package main
 
-import "fmt"
-
-type Person struct {
-	Name string
-}
-
-type Hoge struct {
-	Name string
-}
-
-func (p *Person) Say() {
-	p.Name = "hoge"
-	// %pを使うとポインタのアドレスが表示される
-	fmt.Printf("%p\n", p)
-}
+import (
+	"fmt"
+	"typingGo/mylib"
+)
 
 func main() {
-	p := Person{Name: "fuga"}
-	p.Say()
-	fmt.Println(p.Name)
+	p := mylib.Person{Name: "John", Age: 30}
+	fmt.Println(p)
+	mylib.Say()
 }
