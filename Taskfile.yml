@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  GREETING: Hi, Icchy San👋☺️
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  build:
+    cmds:
+      - go build ./cmd/main.go
+  run:
+    cmds:
+      - go run ./cmd/main.go
+  test:
+    cmds:
+      - go test -v ./...
