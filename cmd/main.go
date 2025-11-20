@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"typingGo/mylib"
+	"regexp"
 )
 
 func main() {
-	p := mylib.Person{Name: "John", Age: 30}
-	fmt.Println(p)
-	mylib.Say()
+	match, _ := regexp.MatchString("a[a-z]+e", "appl10e")
+	fmt.Println(match)
 }
